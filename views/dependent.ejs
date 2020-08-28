@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/stylesheets/enroll.css">
+    <title>Enrollment</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Please fill data Of the Dependent:</h1>
+        <hr>
+        <form method="POST" action="/register">
+            <label>Dependent Id:<input type="text" name="dependentId" required></label><br>
+            <br>
+            <label>Dependent FirstName:<input type="text" name="firstname" required></label><br>
+            <br>
+            <label>Dependent LastName:<input type="text" name="lastname" required></label><br>
+            <br>
+            <label>Street:<input type="text" name="street"></label><br>
+            <br>
+            <label>City:<input type="text" name="city" required></label><br>
+            <br>
+            <label>State:<input type="text" name="state" required></label><br>
+            <br>
+            <label>Country:<input type="text" name="country" required></label><br>
+            <br>
+            <label>Email:<input type="text" name="email" required></label><br>
+            <br>
+            <label>Password:<input type="text" name="password" required></label><br>
+            <br>
+            <label>Date of Birth:<input type="date" name="dateofbirth" required></label><br>
+            <br>
+            <% if(data) { %>
+            <label for="policy">Choose a Policy:</label><br>
+            <% data.forEach(function(item){ %>
+            <input type="radio" id="<%= item.policyId%>" name="policy" value="<%= item.policyId%>">
+            <label for="<%= item.policyId%>"><%= item.policyName%></label><br>
+            <% }) %>
+            <% } %>
+            <button type="submit" class="registerbtn">Add Dependent</button>
+        </form>
+    </div>
+</body>
+</html>
